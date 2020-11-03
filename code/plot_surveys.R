@@ -7,9 +7,9 @@ library("tidyverse")
 surveys_complete <- read_csv("data/surveys_complete.csv")
 
 # Assign plot to a variable
-surveys_plot <- ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight)) +
-  geom_boxplot() #Changed to weight
+surveys_plot <- ggplot(data = surveys_complete, mapping = aes(x = species_id, y = weight, fill = species_id))
 
 # Draw the plot
 surveys_plot +
-  geom_point(alpha = 0.1, color = "pink")
+  geom_boxplot() +
+  theme(legend.position = "none")
